@@ -15,3 +15,10 @@ A skeleton Spring Boot project that can be used as a seed for new projects to fu
    `git pull seed main`
 5. Push
    `git push origin master`
+
+## Updating a fork from the seed project
+
+1. Update your fork
+   `git pull seed main`
+2. Resolve any merge conflicts
+   * Common merge conflicts to resolve - Readme.md, pom.xml, application.properties
