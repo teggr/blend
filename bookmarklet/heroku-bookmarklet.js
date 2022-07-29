@@ -1,0 +1,1 @@
+javascript:location.href='https://teggr-blend.herokuapp.com/add-link?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title)

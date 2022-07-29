@@ -1,0 +1,1 @@
+javascript:location.href='http://localhost:8080/add-link?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title)

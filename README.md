@@ -17,19 +17,18 @@ heroku login
 
 heroku plugins:install java
 
-heroku create --no-remote --region=eu teggr-some-app-name
+heroku create --no-remote --region=eu teggr-blend
 
-heroku config --app=teggr-some-app-name
+heroku config --app=teggr-blend
 
-heroku config:set --app=teggr-some-app-name COM_ROBINTEGG_SOME_VALUE=a value
+heroku config:set --app=teggr-blend COM_ROBINTEGG_SOME_VALUE=a value
 
 mvn package -Pproduction
 
-heroku deploy:jar target\some-app-name-1.0-SNAPSHOT.jar --app 
-teggr-some-app-name
+heroku deploy:jar --app=teggr-blend --jdk=17 target\some-app-name-1.0-SNAPSHOT.jar
 
-heroku logs --tail teggr-some-app-name
+heroku logs --tail --app=teggr-blend
 
-heroku addons:create heroku-postgresql -a teggr-some-app-name
+heroku addons:create heroku-postgresql -a teggr-blend
 
 ```
