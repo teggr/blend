@@ -1,13 +1,13 @@
-package com.robintegg.seed.seedproject;
+package com.robintegg.blend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SeedProjectApplication {
+public class BlendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SeedProjectApplication.class, args);
+		SpringApplication.run(BlendApplication.class, args);
 	}
 
 }
