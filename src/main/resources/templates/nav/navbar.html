@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <nav class="navbar" role="navigation" aria-label="main navigation" th:fragment="site">
+            <div class="navbar-brand">
+              <a class="navbar-item" th:href="@{/}">
+                <img th:src="@{/images/robintegg-logo.png}" width="112" height="28">
+              </a>
+          
+              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
+          
+            <div id="navbarBasicExample" class="navbar-menu">
+              <div class="navbar-start">
+                <a class="navbar-item" th:href="@{/}">
+                  Home
+                </a>
+          
+                <a class="navbar-item" th:href="@{/links}">
+                  Links
+                </a>
+          
+                
+              </div>
+          
+              <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="buttons">
+                    <a class="button is-primary" href="https://github.com/teggr/blend">
+                      <strong>Get Blend</strong>
+                    </a>
+                    <a class="button is-light" th:href="@{/login}">
+                      Log in
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+    </body>
+</html>

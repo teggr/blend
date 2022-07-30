@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  </head>
+  <head th:replace="document/head :: default"></head>
   <body>
+    <nav th:replace="nav/navbar :: site"></nav>
   <section class="section">
     <div class="container">
       <h1 class="title">
@@ -15,14 +11,6 @@
       <p class="subtitle">
         See all my recently bookmarked items from the <strong>Web</strong>!
       </p>
-    </div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <h1 class="title">
-        Links
-      </h1>
-      
       <article class="media" th:each="link : ${links}">
         <!--<figure class="media-left">
           <p class="image is-64x64">
@@ -34,7 +22,9 @@
             <p>
               <!--<strong>John Smith</strong> <small>@johnsmith</small> --> <small th:text="${prettyTime.format(link.dateAdded)}">31m</small>
               <br>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+              <stong>via [[${via.format(link.url)}]]</stong>
+              <br>
+              <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis. -->
             </p>
             <p><a th:href="${link.url}" th:text="${link.url}"></a></p>
           </div>
