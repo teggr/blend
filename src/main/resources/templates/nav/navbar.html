@@ -33,8 +33,11 @@
                     <a class="button is-primary" href="https://github.com/teggr/blend">
                       <strong>Get Blend</strong>
                     </a>
-                    <a class="button is-light" th:href="@{/login}">
+                    <a class="button is-light" th:href="@{/login}" sec:authorize="isAnonymous()">
                       Log in
+                    </a>
+                    <a class="button is-light" th:href="@{/logout}" sec:authorize="isAuthenticated()">
+                      Logout
                     </a>
                   </div>
                 </div>

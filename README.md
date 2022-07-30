@@ -21,7 +21,9 @@ heroku create --no-remote --region=eu teggr-blend
 
 heroku config --app=teggr-blend
 
-heroku config:set --app=teggr-blend COM_ROBINTEGG_SOME_VALUE=a value
+# set config
+heroku config:set --app=teggr-blend SPRING_SECURITY_USER_NAME=
+heroku config:set --app=teggr-blend SPRING_SECURITY_USER_PASSWORD=
 
 mvn package -Pproduction
 
