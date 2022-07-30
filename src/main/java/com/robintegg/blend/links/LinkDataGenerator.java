@@ -1,5 +1,7 @@
 package com.robintegg.blend.links;
 
+import java.time.Instant;
+
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -24,7 +26,7 @@ public class LinkDataGenerator implements ApplicationRunner {
 
         log.info("Adding links");
 
-        linkRepository.save(new Link(null, "https://robintegg.com/"));
+        linkRepository.save(new Link(null, "https://robintegg.com/", Instant.now()));
         
     }
     

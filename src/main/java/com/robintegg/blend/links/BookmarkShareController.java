@@ -1,5 +1,7 @@
 package com.robintegg.blend.links;
 
+import java.time.Instant;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -34,7 +36,7 @@ public class BookmarkShareController {
             @Valid @ModelAttribute AddLinkForm addLinkForm,
             BindingResult result) {
 
-        linkRepository.save(new Link(null, addLinkForm.getUrl()));
+        linkRepository.save(new Link(null, addLinkForm.getUrl(), Instant.now()));
 
         return "redirect:/links";
 

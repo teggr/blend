@@ -14,7 +14,7 @@ public class LinksController {
 
     @GetMapping("/links")
     public String getLinks(Model model) {
-        model.addAttribute("links", linkRepository.findAll());
+        model.addAttribute("links", linkRepository.findAllByOrderByDateAddedDesc());
         return "links";
     }
 

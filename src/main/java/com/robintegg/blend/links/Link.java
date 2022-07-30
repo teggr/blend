@@ -1,5 +1,7 @@
 package com.robintegg.blend.links;
 
+import java.time.Instant;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,5 +21,6 @@ public class Link {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String url;
+    private Instant dateAdded;
 
 }
