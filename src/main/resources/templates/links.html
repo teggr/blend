@@ -22,9 +22,39 @@
       <h1 class="title">
         Links
       </h1>
-      <ul>
-        <li th:each="link : ${links}"><a th:href="${link.url}" th:text="${link.url}"></a></li>
-      </ul>
+      
+      <article class="media" th:each="link : ${links}">
+        <!--<figure class="media-left">
+          <p class="image is-64x64">
+            <img src="https://bulma.io/images/placeholders/128x128.png">
+          </p>
+        </figure>-->
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <!--<strong>John Smith</strong> <small>@johnsmith</small> --> <small th:text="${prettyTime.format(link.dateAdded)}">31m</small>
+              <br>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+            </p>
+            <p><a th:href="${link.url}" th:text="${link.url}"></a></p>
+          </div>
+          <!--<nav class="level is-mobile">
+            <div class="level-left">
+              <a class="level-item">
+                <span class="icon is-small"><i class="fas fa-reply"></i></span>
+              </a>
+              <a class="level-item">
+                <span class="icon is-small"><i class="fas fa-retweet"></i></span>
+              </a>
+              <a class="level-item">
+                <span class="icon is-small"><i class="fas fa-heart"></i></span>
+              </a>
+            </div>
+          </nav>-->
+        </div>
+        
+      </article>
+
     </div>
   </section>
   </body>
