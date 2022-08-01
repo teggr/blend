@@ -12,11 +12,11 @@
         See all my recently bookmarked items from the <strong>Web</strong>!
       </p>
       <article class="media" th:each="link : ${links}">
-        <!--<figure class="media-left">
-          <p class="image is-64x64">
-            <img src="https://bulma.io/images/placeholders/128x128.png">
+        <figure class="media-left">
+          <p class="image is-4by3" style="width: 120px;">
+            <img th:src="${link.getImageUrl()}">
           </p>
-        </figure>-->
+        </figure>
         <div class="media-content">
           <div class="content">
             <p>

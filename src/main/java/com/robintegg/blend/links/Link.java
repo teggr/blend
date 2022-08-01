@@ -28,4 +28,8 @@ public class Link {
         this.title = title;
     }
 
+    public String getImageUrl() {
+        return "https://image.thum.io/get/width/640/crop/480/" + url;
+    }
+
 }
