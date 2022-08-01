@@ -36,6 +36,5 @@ heroku addons:create heroku-postgresql -a teggr-blend
 ```
 
 TODO: tags for links
-TODO: pagination for links
 TODO: search titles for links
 TODO: import pocket opml

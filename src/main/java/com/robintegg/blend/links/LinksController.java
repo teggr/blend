@@ -16,7 +16,7 @@ public class LinksController {
     private final LinkRepository linkRepository;
 
     @GetMapping("/links")
-    public String getLinks(Model model, @PageableDefault(sort = "dateAdded", direction = Direction.DESC, size = 3) Pageable pageable) {
+    public String getLinks(Model model, @PageableDefault(sort = "dateAdded", direction = Direction.DESC) Pageable pageable) {
         model.addAttribute("links", linkRepository.findAll(pageable));
         return "links";
     }
