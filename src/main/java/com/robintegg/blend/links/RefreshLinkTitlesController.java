@@ -3,6 +3,7 @@ package com.robintegg.blend.links;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -16,7 +17,8 @@ public class RefreshLinkTitlesController {
     private final LinkMetadata linkMetadata;
 
     @GetMapping("/refresh-link-titles")
-    public String getRefreshLinkTitles() {
+    public String getRefreshLinkTitles(Model model) {
+        model.addAttribute("emptyOnlyCount", linkRepository.countByTitleIsNull());
         return "refresh-link-titles";
     }
 

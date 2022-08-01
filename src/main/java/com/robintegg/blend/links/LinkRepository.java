@@ -10,4 +10,6 @@ interface LinkRepository extends JpaRepository<Link,Long> {
 
     List<Link> findAllByTitleIsNull();
 
+    int countByTitleIsNull();
+
 }
