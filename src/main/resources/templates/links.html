@@ -45,6 +45,40 @@
         
       </article>
 
+      <nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination" th:if="${links.totalPages > 1}">
+        <a class="pagination-previous" th:classAppend="${!links.hasPrevious()} ? 'is-disabled'" th:href="@{/links(page=${links.number-1})}">Previous</a>
+        <a class="pagination-next" th:classAppend="${!links.hasNext()} ? 'is-disabled'" th:href="@{/links(page=${links.number+1})}">Next page</a>
+        <ul class="pagination-list">
+          <li>
+            <a class="pagination-link" aria-label="Goto page 1" th:href="@{/links(page=0)}">1</a>
+          </li>
+          <li>
+            <span class="pagination-ellipsis">&hellip;</span>
+          </li>
+          <li>
+            <a class="pagination-link" aria-label="Goto page [[${links.number - 1}]]" th:if="${links.number == links.totalPages - 1 && links.totalPages <= 3}" th:href="@{/links(page=${links.number - 2})}" th:text="${links.number - 1}">47</a>
+          </li>
+          <li>
+            <a class="pagination-link" aria-label="Goto page [[${links.number}]]" th:if="${links.number > 0}" th:href="@{/links(page=${links.number - 1})}" th:text="${links.number}">45</a>
+          </li>
+          <li>
+            <a class="pagination-link is-current" aria-label="Page [[${links.number + 1}]]" aria-current="page" th:href="@{/links(page=${links.number})}" th:text="${links.number + 1}">46</a>
+          </li>
+          <li>
+            <a class="pagination-link" aria-label="Goto page [[${links.number + 2}]]" th:if="${links.number < links.totalPages - 1}" th:href="@{/links(page=${links.number + 1})}" th:text="${links.number + 2}">47</a>
+          </li>
+          <li>
+            <a class="pagination-link" aria-label="Goto page [[${links.number + 3}]]" th:if="${links.number == 0 && links.totalPages <= 3}" th:href="@{/links(page=${links.number + 2})}" th:text="${links.number + 3}">47</a>
+          </li>
+          <li>
+            <span class="pagination-ellipsis">&hellip;</span>
+          </li>
+          <li>
+            <a class="pagination-link" aria-label="Goto page [[${links.totalPages}]]" th:href="@{/links(page=${links.totalPages - 1})}" th:text="${links.totalPages}">86</a>
+          </li>
+        </ul>
+      </nav>
+
     </div>
   </section>
   </body>
