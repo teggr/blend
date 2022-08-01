@@ -26,7 +26,7 @@ public class LinkDataGenerator implements ApplicationRunner {
 
         log.info("Adding links");
 
-        linkRepository.save(new Link(null, "https://robintegg.com/", Instant.now()));
+        linkRepository.save(new Link(null, "https://robintegg.com/", Instant.now(), "My Home Page"));
         
     }
     

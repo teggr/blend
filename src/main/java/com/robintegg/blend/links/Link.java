@@ -7,8 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.ocpsoft.prettytime.PrettyTime;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,11 +22,6 @@ public class Link {
     private Long id;
     private String url;
     private Instant dateAdded;
-
-
-    public String getDurationSinceDateAdded() {
-        PrettyTime p = new PrettyTime();
-        return p.format(dateAdded);
-    }
+    private String title;
 
 }

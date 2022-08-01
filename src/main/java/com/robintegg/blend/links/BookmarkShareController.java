@@ -18,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BookmarkShareController {
 
+    private final LinkMetadata linkMetadata;
     private final LinkRepository linkRepository;
 
     @GetMapping("/add-link")
@@ -25,7 +26,9 @@ public class BookmarkShareController {
             @RequestParam(value = "url", required = true) String url,
             Model model) {
 
-        model.addAttribute("addLinkForm", new AddLinkForm(url));
+        String title = linkMetadata.getTitle(url);
+
+        model.addAttribute("addLinkForm", new AddLinkForm(url, title));
 
         return "add-link";
 
@@ -36,7 +39,7 @@ public class BookmarkShareController {
             @Valid @ModelAttribute AddLinkForm addLinkForm,
             BindingResult result) {
 
-        linkRepository.save(new Link(null, addLinkForm.getUrl(), Instant.now()));
+        linkRepository.save(new Link(null, addLinkForm.getUrl(), Instant.now(), addLinkForm.getTitle()));
 
         return "redirect:/links";
 

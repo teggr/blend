@@ -14,4 +14,8 @@ public class AddLinkForm {
     @Size(max = 2048)
     private String url;
 
+    @NotEmpty
+    @Size(max = 2048)
+    private String title;
+
 }

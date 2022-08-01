@@ -34,3 +34,10 @@ heroku logs --tail --app=teggr-blend
 heroku addons:create heroku-postgresql -a teggr-blend
 
 ```
+
+TODO: titles for links
+TODO: tags for links
+TODO: images for links
+TODO: pagination for links
+TODO: search titles for links
+TODO: import pocket opml
