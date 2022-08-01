@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class BookmarkShareController {
+public class AddLinkController {
 
     private final LinkMetadata linkMetadata;
     private final LinkRepository linkRepository;

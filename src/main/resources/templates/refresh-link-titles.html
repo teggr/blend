@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="document/head :: default"></head>
+  <body>
+    <nav th:replace="nav/navbar :: site"></nav>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Refresh Link Titles
+      </h1>
+      <form th:action="@{/refresh-link-titles}" method="post">
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-link" type="submit" name="emptyOnly">Empty Only</button>
+          </div>
+      </form>
+    </div>
+  </section>
+
+  </body>
+</html>

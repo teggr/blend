@@ -23,7 +23,10 @@
                 <a class="navbar-item" th:href="@{/links}">
                   Links
                 </a>
-          
+
+                <a class="navbar-item" th:href="@{/refresh-link-titles}" sec:authorize="isAuthenticated()">
+                  Refresh Link Titles
+                </a>
                 
               </div>
           

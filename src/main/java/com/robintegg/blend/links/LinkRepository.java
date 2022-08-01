@@ -8,4 +8,6 @@ interface LinkRepository extends JpaRepository<Link,Long> {
 
     List<Link> findAllByOrderByDateAddedDesc();
 
+    List<Link> findAllByTitleIsNull();
+
 }

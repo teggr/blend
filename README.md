@@ -41,3 +41,7 @@ TODO: images for links
 TODO: pagination for links
 TODO: search titles for links
 TODO: import pocket opml
+
+```
+curl -v -X POST -u user http://localhost:8080/fix-link-titles
+```

@@ -24,4 +24,8 @@ public class Link {
     private Instant dateAdded;
     private String title;
 
+    public void updateTitle(String title) {
+        this.title = title;
+    }
+
 }
