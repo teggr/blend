@@ -1,5 +1,9 @@
 package com.robintegg.blend.links;
 
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -17,5 +21,11 @@ public class AddLinkForm {
     @NotEmpty
     @Size(max = 2048)
     private String title;
+
+    private String tags;
+
+    public Set<String> getTagsAsSet() {
+        return tags == null ? Set.of() : Stream.of(tags.split(",")).map(String::trim).collect(Collectors.toSet());
+    }
 
 }

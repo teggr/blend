@@ -28,7 +28,7 @@ public class AddLinkController {
 
         String title = linkMetadata.getTitle(url);
 
-        model.addAttribute("addLinkForm", new AddLinkForm(url, title));
+        model.addAttribute("addLinkForm", new AddLinkForm(url, title, null));
 
         return "add-link";
 
@@ -39,7 +39,7 @@ public class AddLinkController {
             @Valid @ModelAttribute AddLinkForm addLinkForm,
             BindingResult result) {
 
-        linkRepository.save(new Link(null, addLinkForm.getUrl(), Instant.now(), addLinkForm.getTitle()));
+        linkRepository.save(new Link(null, addLinkForm.getUrl(), Instant.now(), addLinkForm.getTitle(), addLinkForm.getTagsAsSet()));
 
         return "redirect:/links";
 
