@@ -14,7 +14,7 @@ public class WebSecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests((authz) -> {
-                authz.antMatchers("/add-link","/refresh-link-titles").authenticated();
+                authz.antMatchers("/add-link","/refresh-link-titles","/import-opml").authenticated();
                 authz.antMatchers("/","/links").permitAll();
                 authz.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll();
                 authz.anyRequest().denyAll();
