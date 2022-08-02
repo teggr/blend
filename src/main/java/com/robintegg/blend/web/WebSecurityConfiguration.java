@@ -19,7 +19,10 @@ public class WebSecurityConfiguration {
                     "/refresh-link-titles",
                     "/import-opml",
                     "/add-podcast").authenticated();
-                authz.antMatchers("/","/links").permitAll();
+                authz.antMatchers(
+                    "/",
+                    "/links",
+                    "/podcasts").permitAll();
                 authz.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll();
                 authz.anyRequest().denyAll();
             })

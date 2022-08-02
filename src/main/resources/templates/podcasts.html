@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="document/head :: default"></head>
+  <body>
+    <nav th:replace="nav/navbar :: site"></nav>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Podcasts
+      </h1>
+      <p class="subtitle">
+        See all my Podcasts that I listen to on the <strong>Web</strong>!
+      </p>
+      <article class="media" th:each="podcast : ${podcasts}">
+        <figure class="media-left">
+          <p class="image is-4by3" style="width: 120px;">
+            <a th:href="${podcast?.feedData?.webUrl}" target="_blank">
+              <img th:src="${podcast?.feedData?.imageUrl}">
+            </a>
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong th:text="${podcast?.feedData?.title}">John Smith</strong>
+              <br>
+              <stong>via <a th:href="${podcast?.feedData?.webUrl}" target="_blank" th:text="${via.format(podcast?.feedData?.webUrl)}"></a></stong> <small th:text="${prettyTime.format(podcast.dateAdded)}">31m</small>
+              <br>
+              <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis. -->
+            </p>
+            <p>RSS Feed: <a th:href="${podcast.feedUrl}" target="_blank" th:text="${podcast.feedUrl}"></a></p>
+            <div class="tags">
+              <span class="tag" th:each="tag : ${podcast.tags}" th:text="${tag}">One</span>
+            </div>
+          </div>
+        </div>
+        
+      </article>
+
+      <nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination" th:if="${podcasts.totalPages > 1}">
+        <!-- previous -->
+        <a class="pagination-previous" th:classAppend="${!podcasts.hasPrevious()} ? 'is-disabled'" 
+            th:href="@{/podcasts(page=${podcasts.number-1})}">Previous</a>
+        <!-- next -->
+        <a class="pagination-next" th:classAppend="${!podcasts.hasNext()} ? 'is-disabled'" 
+            th:href="@{/podcasts(page=${podcasts.number+2})}">Next page</a>
+        <!-- list -->
+        <ul class="pagination-list">
+          <!-- first page -->
+          <li>
+            <a class="pagination-link" aria-label="Goto page 1" 
+                th:href="@{/podcasts(page=1)}">1</a>
+          </li>
+          <li>
+            <span class="pagination-ellipsis">&hellip;</span>
+          </li>
+          <!-- page - 2 -->
+          <li>
+            <a class="pagination-link" aria-label="Goto page - 2" 
+                th:if="${podcasts.number + 1 == podcasts.totalPages && podcasts.totalPages >= 3}" 
+                th:href="@{/podcasts(page=${podcasts.number - 2})}" th:text="${podcasts.number - 1}">47</a>
+          </li>
+          <!-- page - 1 -->
+          <li>
+            <a class="pagination-link" aria-label="Goto page - 1" 
+                th:if="${podcasts.number > 0}" 
+                th:href="@{/podcasts(page=${podcasts.number})}" 
+                th:text="${podcasts.number}">45</a>
+          </li>
+          <!-- page - current -->
+          <li>
+            <a class="pagination-link is-current" aria-label="Page current" aria-current="page" 
+                th:href="@{/podcasts(page=${podcasts.number + 1})}" 
+                th:text="${podcasts.number + 1}">46</a>
+          </li>
+          <!-- page + 1 -->
+          <li>
+            <a class="pagination-link" aria-label="Goto page + 1" 
+                th:if="${podcasts.number + 2 <= podcasts.totalPages - 1}" 
+                th:href="@{/podcasts(page=${podcasts.number + 2})}" 
+                th:text="${podcasts.number + 2}">47</a>
+          </li>
+          <!-- page + 2 -->
+          <li>
+            <a class="pagination-link" aria-label="Goto page + 2" 
+                th:if="${podcasts.number == 0 && podcasts.totalPages >= 3}" 
+                th:href="@{/podcasts(page=${podcasts.number + 3})}" th:text="${podcasts.number + 3}">47</a>
+          </li>
+          <li>
+            <span class="pagination-ellipsis">&hellip;</span>
+          </li>
+          <!-- last page -->
+          <li>
+            <a class="pagination-link" aria-label="Goto page [[${podcasts.totalPages}]]" th:href="@{/podcasts(page=${podcasts.totalPages})}" th:text="${podcasts.totalPages}">86</a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </section>
+
+  <script th:replace="nav/navbar :: siteScript"></script>
+  
+  </body>
+</html>
