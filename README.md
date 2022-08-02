@@ -40,8 +40,6 @@ TODO: link of the day
 
 TODO: search titles for links (general search?)
 
-TODO: footer with contact details
-
 TODO: bookshelf
 
 TODO: blog
