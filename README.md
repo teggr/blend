@@ -37,7 +37,6 @@ heroku addons:create heroku-postgresql -a teggr-blend
 
 TODO: edit links
 TODO: link of the day
-TODO: generate link bundle for blogging entry
 
 TODO: search titles for links (general search?)
 
@@ -45,10 +44,9 @@ TODO: footer with contact details
 
 TODO: bookshelf
 
-TODO: add podcasts
-TODO: show podcasts
-TODO: enrich podcasts
-
 TODO: blog
+TODO: generate link bundle for blogging entry
 
 TODO: rss feeds
+
+TODO: individual tags

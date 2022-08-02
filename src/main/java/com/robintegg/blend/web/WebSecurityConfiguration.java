@@ -22,7 +22,8 @@ public class WebSecurityConfiguration {
                 authz.antMatchers(
                     "/",
                     "/links",
-                    "/podcasts").permitAll();
+                    "/podcasts",
+                    "/tags").permitAll();
                 authz.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll();
                 authz.anyRequest().denyAll();
             })

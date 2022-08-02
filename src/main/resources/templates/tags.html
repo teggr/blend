@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="document/head :: default"></head>
+  <body>
+    <nav th:replace="nav/navbar :: site"></nav>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Tags
+      </h1>
+      <p class="subtitle">
+        See all my recently tagged items from the <strong>Web</strong>!
+      </p>
+
+      <div class="tags are-medium">
+        <span class="tag" th:each="tag : ${tags}" th:text="${tag}">All</span>
+      </div>
+
+    </div>
+  </section>
+
+  <script th:replace="nav/navbar :: siteScript"></script>
+  
+  </body>
+</html>
