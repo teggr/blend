@@ -13,7 +13,7 @@
       </p>
       <article class="media" th:each="podcast : ${podcasts}">
         <figure class="media-left">
-          <p class="image is-4by3" style="width: 120px;">
+          <p class="image is-128x128" style="width: 128px;">
             <a th:href="${podcast?.feedData?.webUrl}" target="_blank">
               <img th:src="${podcast?.feedData?.imageUrl}">
             </a>
