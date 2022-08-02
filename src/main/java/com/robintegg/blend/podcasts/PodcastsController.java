@@ -16,7 +16,7 @@ public class PodcastsController {
     private final PodcastRepository podcastRepository;
 
     @GetMapping("/podcasts")
-    public String getLinks(Model model, @PageableDefault(sort = "dateAdded", direction = Direction.DESC) Pageable pageable) {
+    public String getLinks(Model model, @PageableDefault(size = 20, sort = "dateAdded", direction = Direction.DESC) Pageable pageable) {
         model.addAttribute("podcasts", podcastRepository.findAll(pageable));
         return "podcasts";
     }
