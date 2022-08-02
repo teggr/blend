@@ -45,7 +45,9 @@ TODO: footer with contact details
 
 TODO: bookshelf
 
-TODO: podcasts
+TODO: add podcasts
+TODO: show podcasts
+TODO: enrich podcasts
 
 TODO: blog
 

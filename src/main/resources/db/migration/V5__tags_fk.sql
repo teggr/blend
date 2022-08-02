@@ -1,0 +1,1 @@
+ALTER TABLE link_tags ADD CONSTRAINT link_tags_link_fkey FOREIGN KEY (link_id) REFERENCES link (id);

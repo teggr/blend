@@ -6,26 +6,20 @@
   <section class="section">
     <div class="container">
       <h1 class="title">
-        Add a new Link
+        Add a new Podcast
       </h1>
       <p class="subtitle">
-        Add a new link with <strong>Blend</strong>!
+        Add a new Podcast with <strong>Blend</strong>!
       </p>
     </div>
   </section>
   <section class="section">
     <div class="container">
-      <form th:action="@{/add-link}" method="post" th:object="${addLinkForm}">
+      <form th:action="@{/add-podcast}" method="post" th:object="${addPodcastForm}">
         <div class="field">
-          <label class="label" for="url">Url</label>
+          <label class="label" for="feedUrl">Url</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Url" th:field="*{url}" >
-          </div>
-        </div>
-        <div class="field">
-          <label class="label" for="title">Title</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="Title" th:field="*{title}" >
+            <input class="input" type="text" placeholder="Feed Url" th:field="*{feedUrl}" >
           </div>
         </div>
         <div class="field">
@@ -39,7 +33,7 @@
             <button class="button is-link" type="submit">Submit</button>
           </div>
           <div class="control">
-            <a class="button is-link is-light" th:href="@{/links}">Cancel</a>
+            <a class="button is-link is-light" th:href="@{/podcasts}">Cancel</a>
           </div>
         </div>
       </form>

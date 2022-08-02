@@ -1,4 +1,4 @@
-package com.robintegg.blend.links;
+package com.robintegg.blend.podcasts;
 
 import java.time.Instant;
 import java.util.Set;
@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,25 +21,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class Link {
+public class Podcast {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String url;
+    private String feedUrl;
     private Instant dateAdded;
-    private String title;
+    @Embedded
+    private FeedData feedData;
     @ElementCollection
     @CollectionTable(name = "link_tags", joinColumns = @JoinColumn(name = "link_id"))
     @Column(name="tags")
     private Set<String> tags;
-
-    public void updateTitle(String title) {
-        this.title = title;
-    }
-
-    public String getImageUrl() {
-        return "https://image.thum.io/get/width/640/crop/480/" + url;
-    }
 
 }
