@@ -12,6 +12,14 @@
         Find out all about <strong>me</strong>!
       </p>
       
+      <th:block th:each="content : ${contentList}">
+        <th:block th:if="${content.type == 'link'}" >
+          <article th:replace="content/link :: full(${content.content})"></article>
+        </th:block>
+        <th:block th:if="${content.type == 'podcast'}">
+          <article th:replace="content/podcast :: full(${content.content})"></article>
+        </th:block>
+      </th:block>
 
     </div>
   </section>

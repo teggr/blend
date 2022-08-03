@@ -11,31 +11,10 @@
       <p class="subtitle">
         See all my Podcasts that I listen to on the <strong>Web</strong>!
       </p>
-      <article class="media" th:each="podcast : ${podcasts}">
-        <figure class="media-left">
-          <p class="image is-128x128" style="width: 128px;">
-            <a th:href="${podcast?.feedData?.webUrl}" target="_blank">
-              <img th:src="${podcast?.feedData?.imageUrl}">
-            </a>
-          </p>
-        </figure>
-        <div class="media-content">
-          <div class="content">
-            <p>
-              <strong th:text="${podcast?.feedData?.title}">John Smith</strong>
-              <br>
-              <stong>via <a th:href="${podcast?.feedData?.webUrl}" target="_blank" th:text="${via.format(podcast?.feedData?.webUrl)}"></a></stong> <small th:text="${prettyTime.format(podcast.dateAdded)}">31m</small>
-              <br>
-              <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis. -->
-            </p>
-            <p>RSS Feed: <a th:href="${podcast.feedUrl}" target="_blank" th:text="${podcast.feedUrl}"></a></p>
-            <div class="tags">
-              <span class="tag" th:each="tag : ${podcast.tags}" th:text="${tag}">One</span>
-            </div>
-          </div>
-        </div>
-        
-      </article>
+
+      <th:block th:each="podcast : ${podcasts}">
+        <article th:replace="content/podcast :: full(${podcast})"></article>
+      </th:block>
 
       <nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination" th:if="${podcasts.totalPages > 1}">
         <!-- previous -->

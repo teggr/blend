@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <article class="media" th:fragment="full (podcast)">
+            <figure class="media-left">
+              <p class="image is-128x128" style="width: 128px;">
+                <a th:href="${podcast?.feedData?.webUrl}" target="_blank">
+                  <img th:src="${podcast?.feedData?.imageUrl}">
+                </a>
+              </p>
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong th:text="${podcast?.feedData?.title}">John Smith</strong>
+                  <br>
+                  <stong>via <a th:href="${podcast?.feedData?.webUrl}" target="_blank" th:text="${via.format(podcast?.feedData?.webUrl)}"></a></stong> <small th:text="${prettyTime.format(podcast.dateAdded)}">31m</small>
+                  <br>
+                  <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis. -->
+                </p>
+                <p>RSS Feed: <a th:href="${podcast.feedUrl}" target="_blank" th:text="${podcast.feedUrl}"></a></p>
+                <div class="tags">
+                  <span class="tag" th:each="tag : ${podcast.tags}" th:text="${tag}">One</span>
+                </div>
+              </div>
+            </div>
+            
+          </article>
+    </body>
+</html>

@@ -11,31 +11,10 @@
       <p class="subtitle">
         See all my recently bookmarked items from the <strong>Web</strong>!
       </p>
-      <article class="media" th:each="link : ${links}">
-        <figure class="media-left">
-          <p class="image is-4by3" style="width: 120px;">
-            <a th:href="${link.url}" target="_blank">
-              <img th:src="${link.getImageUrl()}">
-            </a>
-          </p>
-        </figure>
-        <div class="media-content">
-          <div class="content">
-            <p>
-              <strong th:text="${link.title}">John Smith</strong>
-              <br>
-              <stong>via <a th:href="${link.url}" target="_blank" th:text="${via.format(link.url)}"></a></stong> <small th:text="${prettyTime.format(link.dateAdded)}">31m</small>
-              <br>
-              <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis. -->
-            </p>
-            <p><a th:href="${link.url}" target="_blank" th:text="${link.url}"></a></p>
-            <div class="tags">
-              <span class="tag" th:each="tag : ${link.tags}" th:text="${tag}">One</span>
-            </div>
-          </div>
-        </div>
-        
-      </article>
+
+      <th:block th:each="link : ${links}">
+        <article th:replace="content/link :: full(${link})"></article>
+      </th:block>
 
       <nav class="pagination is-centered mt-4" role="navigation" aria-label="pagination" th:if="${links.totalPages > 1}">
         <!-- previous -->

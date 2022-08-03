@@ -48,3 +48,29 @@ TODO: generate link bundle for blogging entry
 TODO: rss feeds
 
 TODO: individual tags
+
+TODO: front page / tags aggregated view 
+  * implemented union view + immutable entity
+  * single index that tracks all content?
+    * id + date_added?
+    * mappedsuperclass?
+
+@MappedSuperclass
+class Content {
+    @OneToOne
+    private DocumentIndex index;
+    private Instant dateAdded;
+}
+
+// extends on a per table basis - common attribute index_id (move dateadded to super class?)
+class Podcast extends Content {
+
+} 
+
+// has own repository
+class DocumentIndex {
+    @Id
+    private Long id;
+    @OneToOne
+    private Content content;
+}
