@@ -23,7 +23,8 @@ public class WebSecurityConfiguration {
                     "/",
                     "/links",
                     "/podcasts",
-                    "/tags").permitAll();
+                    "/tags",
+                    "/export-links").permitAll();
                 authz.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll();
                 authz.anyRequest().denyAll();
             })
